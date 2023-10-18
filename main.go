@@ -14,6 +14,12 @@ func main() {
 	if ormErr != nil {
 		panic(ormErr)
 	}
+
+	_, rdbErr := utils.RedisInit("localhost",6379,"",0)
+	if rdbErr != nil {
+		panic(rdbErr)
+	}
+
 	// migrateErr := db.AutoMigrate(&user.User{})
 	// if migrateErr != nil {
 	// 	return
